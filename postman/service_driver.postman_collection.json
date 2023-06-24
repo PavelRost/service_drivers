@@ -1,0 +1,543 @@
+{
+	"info": {
+		"_postman_id": "91360046-01ba-4a95-a6db-16b530deec2a",
+		"name": "service_driver",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Водитель",
+			"item": [
+				{
+					"name": "Создать водителя",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lastName\":\"Петров\",\r\n    \"firstName\":\"Фефор\",\r\n    \"patronymic\":\"Борисович\",\r\n    \"birthdate\":\"1990-06-21\",\r\n    \"passport\":\"2233446688\",\r\n    \"license\":\"Б\",\r\n    \"experience\":\"20\",\r\n    \"blueMoney\":\"50.0\",\r\n    \"vinCars\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/driver/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"driver",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Обновить данные о водителе",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lastName\":\"Сидоров\",\r\n    \"firstName\":\"Феодосий\",\r\n    \"patronymic\":\"Борисович\",\r\n    \"birthdate\":\"1990-11-05\",\r\n    \"passport\":\"2233445573\",\r\n    \"license\":\"Б\",\r\n    \"experience\":\"20\",\r\n    \"blueMoney\":\"100.0\",\r\n    \"vinCars\": [\r\n        \"22222\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/driver/update?idDriver=7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"driver",
+								"update"
+							],
+							"query": [
+								{
+									"key": "idDriver",
+									"value": "7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удалить водителя",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/driver/delete?idDriver=9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"driver",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "idDriver",
+									"value": "9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Показать всех водителей",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/driver/findAll?offset=0&limit=1&direction=asc&sortByField=id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"driver",
+								"findAll"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "1"
+								},
+								{
+									"key": "direction",
+									"value": "asc"
+								},
+								{
+									"key": "sortByField",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Поиск водителя по id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/driver/findById?id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"driver",
+								"findById"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Поиск водителя по фамилии",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/driver/findByLastName?lastName",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"driver",
+								"findByLastName"
+							],
+							"query": [
+								{
+									"key": "lastName",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Поиск водителя по паспорту",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/driver/findByPassport?passport",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"driver",
+								"findByPassport"
+							],
+							"query": [
+								{
+									"key": "passport",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Добавить водителю автомобиль",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/driver/addCarOnDriver?idDriver=8&vinCar=New rocket3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"driver",
+								"addCarOnDriver"
+							],
+							"query": [
+								{
+									"key": "idDriver",
+									"value": "8"
+								},
+								{
+									"key": "vinCar",
+									"value": "New rocket3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удалить машину у водителя",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/driver/deleteCarOnDriver?idDriver=8&vinCar=317-500-499-500",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"driver",
+								"deleteCarOnDriver"
+							],
+							"query": [
+								{
+									"key": "idDriver",
+									"value": "8"
+								},
+								{
+									"key": "vinCar",
+									"value": "317-500-499-500"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Счет водителя",
+			"item": [
+				{
+					"name": "Пополнить в красной валютой",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/money/addRed?idDriver=3&money=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"money",
+								"addRed"
+							],
+							"query": [
+								{
+									"key": "idDriver",
+									"value": "3"
+								},
+								{
+									"key": "money",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Пополнить в зеленой валютой",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/money/addGreen?idDriver=3&money=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"money",
+								"addGreen"
+							],
+							"query": [
+								{
+									"key": "idDriver",
+									"value": "3"
+								},
+								{
+									"key": "money",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Пополнить в синей валютой",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/money/addBlue?idDriver=3&money=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"money",
+								"addBlue"
+							],
+							"query": [
+								{
+									"key": "idDriver",
+									"value": "3"
+								},
+								{
+									"key": "money",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Снять в красной валюте",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/money/getRed?idDriver=3&money=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"money",
+								"getRed"
+							],
+							"query": [
+								{
+									"key": "idDriver",
+									"value": "3"
+								},
+								{
+									"key": "money",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Снять в зеленой валюте",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/money/getGreen?idDriver=3&money=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"money",
+								"getGreen"
+							],
+							"query": [
+								{
+									"key": "idDriver",
+									"value": "3"
+								},
+								{
+									"key": "money",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Снять в синей валюте",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/money/getBlue?idDriver=3&money=5.5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"money",
+								"getBlue"
+							],
+							"query": [
+								{
+									"key": "idDriver",
+									"value": "3"
+								},
+								{
+									"key": "money",
+									"value": "5.5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Отобразить баланс в красной валюте",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/money/showRed?idDriver=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"money",
+								"showRed"
+							],
+							"query": [
+								{
+									"key": "idDriver",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Отобразить баланс в зеленой валюте",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/money/showGreen?idDriver=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"money",
+								"showGreen"
+							],
+							"query": [
+								{
+									"key": "idDriver",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Отобразить баланс в синей валюте",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/money/showBlue?idDriver",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"money",
+								"showBlue"
+							],
+							"query": [
+								{
+									"key": "idDriver",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
