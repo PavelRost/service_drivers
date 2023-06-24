@@ -25,7 +25,7 @@
 - Межсервисное взаимодейтсвие построено на REST (RestTemplate).
 - Для работы с БД используется Spring JPA, PostgreSQL.
 - Для вывода в логи используется стандартная библиотека - java.util.logging
-- - Приложение покрыто unit тестами (JUnit 5, Mockito).
+- Приложение покрыто unit тестами (JUnit 5, Mockito).
 
 **Дополнительно:**
 - swagger: http://localhost:8090/swagger-ui/index.html
